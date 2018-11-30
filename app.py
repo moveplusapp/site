@@ -1,7 +1,6 @@
 from flask import (
     Flask,
     render_template,
-    abort,
     jsonify
 )
 
@@ -21,6 +20,8 @@ def render_index():
 @app.route('/api/v<version>/')
 def render_api_root(version):
     return jsonify({
-        "onboarding": "https://www.moveplus.app/views/welcome",
-        "should_update": False
+        "onboard": {
+            "url": "https://www.moveplus.app/views/welcome",
+            "version": 1
+        }
     })
